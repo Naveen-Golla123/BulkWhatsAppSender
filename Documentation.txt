@@ -1,0 +1,45 @@
+https://api.whatsapp.com/send?phone={phoneNumber}&text={msg}
+
+
+
+
+driver =webdriver.Chrome("C:/Users/Desktop/Desktop/WhatsApp_Automation/chromedriver.exe")
+
+driver.get("https://web.whatsapp.com/")
+
+
+n = input()
+
+#driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 't')
+  
+driver.get("https://api.whatsapp.com/send?phone=917779870197&text=demo")
+
+continueToChat = driver.find_element_by_id("action-button")
+
+action = ActionChains(driver)
+
+action.click(continueToChat)
+
+action.perform()
+
+time.sleep(1)
+
+continueWithWebBrowser = driver.find_elements(By.CLASS_NAME, "_36or")[3]
+
+action = ActionChains(driver)
+
+action.click(continueWithWebBrowser)
+
+action.perform()
+
+time.sleep(3)
+
+sendMsg = driver.find_elements_by_class_name("_4sWnG")
+
+print(sendMsg)
+
+action = ActionChains(driver)
+
+action.click(sendMsg)
+
+action.perform()
